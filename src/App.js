@@ -10,6 +10,9 @@ import Dashboard from './pages/Dashboard/Dashboard';
 import MyOrders from './pages/Dashboard/MyOrders';
 import AddReview from './pages/Dashboard/AddReview';
 import MyProfiles from './pages/Dashboard/MyProfiles';
+import Purchase from './pages/Tools/Purchase';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
@@ -20,12 +23,14 @@ function App() {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<SignUp></SignUp>}></Route>
+        <Route path='/tool/:id' element={<RequireAuth><Purchase/></RequireAuth>}></Route>
         <Route path='/dashboard' element={<RequireAuth><Dashboard/></RequireAuth>}>
           <Route index element={<MyOrders></MyOrders>}></Route>
           <Route path='review' element={<AddReview/>}></Route>
           <Route path='profile' element={<MyProfiles/>}></Route>
         </Route>
       </Routes>
+      <ToastContainer />
     </div>
   );
 }

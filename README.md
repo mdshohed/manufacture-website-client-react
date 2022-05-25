@@ -13,4 +13,4 @@
 - [Tailwind css](https://tailwindcss.com/docs/installation)
 - [DaisyUI](https://daisyui.com/docs/install/)
 - [React from hooks](https://react-hook-form.com/get-started)
-- [] 
+- [react-countup](https://www.npmjs.com/package/react-countup)
