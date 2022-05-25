@@ -14,9 +14,9 @@ const Purchase = () => {
   const handleOrders = (event) =>{
     event.preventDefault(); 
     const userQuantity = event.target.userQuantity.value; 
-    // if(parseInt(userQuantity)<parseInt(minQuantity)) {
-    //   alert('please fill min-quantity')
-    // }
+    if(parseInt(userQuantity)<parseInt(minQuantity)) {
+      alert('please fill min-quantity')
+    }
     
 
     const order = {
