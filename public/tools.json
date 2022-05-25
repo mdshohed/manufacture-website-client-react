@@ -4,63 +4,63 @@
     "img": "https://i.ibb.co/Pt6sD7S/product1.jpg", 
     "price": "345",
     "minQuantity": 10,
-    "Quantity": 123
+    "quantity": 123
   },
   {
     "name": "Rodenstock 100mm f/4 digital HR Lens", 
     "img": "https://i.ibb.co/nPjm7YY/product2.webp", 
     "price": "4771",
     "minQuantity": 10,
-    "Quantity": 123
+    "quantity": 123
   },
   {
     "name": "Godox V1 Flash for Canon", 
     "img": "https://i.ibb.co/GkZCStZ/product3.webp", 
     "price": "259",
     "minQuantity": 15,
-    "Quantity": 1263
+    "quantity": 1263
   },
   {
     "name": "Arco Video Dr. Bag 30", 
     "img": "https://i.ibb.co/0f3bHvg/product4.jpg", 
     "price": "54",
     "minQuantity": 20,
-    "Quantity": 1344
+    "quantity": 1344
   },
   {
     "name": "Ruggard Onyx 35 Camera/Camcorder Shoulder Bag", 
     "img": "https://i.ibb.co/BGJCvHV/product5.jpg", 
     "price": "19",
     "minQuantity": 20,
-    "Quantity": 12334
+    "quantity": 12334
   },
   {
     "name": "Oben CTT-1000 Carbon Fiber Tabletop Tripod", 
     "img": "https://i.ibb.co/Lvt9gMh/product6.jpg", 
     "price": "99",
     "minQuantity": 15,
-    "Quantity": 453
+    "quantity": 453
   },
   {
     "name": "Aluminum Tripod with Monopod and Ball Head Kit", 
     "img": "https://i.ibb.co/BgtXMkW/product7.jpg", 
     "price": "74",
     "minQuantity": 23,
-    "Quantity": 547
+    "quantity": 547
   },
   {
     "name": "Plate Tripod with Monopod and Ball Head Kit", 
     "img": "https://i.ibb.co/Ky7BgXx/product8.jpg", 
     "price": "74",
     "minQuantity": 25,
-    "Quantity": 4563
+    "quantity": 4563
   },
   {
     "name": "Chiaro Pro 77mm 99-UVBTS Brass UV Filter", 
     "img": "https://i.ibb.co/zQXyJMj/product10.jpg", 
     "price": "54",
     "minQuantity": 40,
-    "Quantity": 324
+    "quantity": 324
   }
 ]
 

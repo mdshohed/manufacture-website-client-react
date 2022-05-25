@@ -1,9 +1,14 @@
 import React from 'react';
+import Footer from '../Shared/Footer';
+import Banner from './Banner';
+import HomeTools from './HomeTools';
 
 const Home = () => {
   return (
-    <div className='container mx-auto'>
-      <h2>Hello</h2>
+    <div className=''>
+      <Banner></Banner>
+      <HomeTools></HomeTools>
+      <Footer></Footer>
     </div>
   );
 };

@@ -7,18 +7,23 @@ import Login from './pages/Login/Login';
 import SignUp from './pages/Login/SignUp';
 import RequireAuth from './pages/Login/RequireAuth';
 import Dashboard from './pages/Dashboard/Dashboard';
+import MyOrders from './pages/Dashboard/MyOrders';
+import AddReview from './pages/Dashboard/AddReview';
+import MyProfiles from './pages/Dashboard/MyProfiles';
 
 function App() {
 
   return (
-    <div>
+    <div className=''>
       <Navbar></Navbar>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<SignUp></SignUp>}></Route>
-        <Route path='/dashboard' element={<RequireAuth><Dashboard></Dashboard></RequireAuth>}>
-          
+        <Route path='/dashboard' element={<RequireAuth><Dashboard/></RequireAuth>}>
+          <Route index element={<MyOrders></MyOrders>}></Route>
+          <Route path='review' element={<AddReview/>}></Route>
+          <Route path='profile' element={<MyProfiles/>}></Route>
         </Route>
       </Routes>
     </div>
