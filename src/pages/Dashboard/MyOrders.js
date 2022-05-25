@@ -74,8 +74,8 @@ const MyOrders = () => {
                   <td>{a.quantity}</td>
                   <td>
                     {<>
-                      {<button onClick={()=>handleOrderDelete(a._id)} class="btn btn-xs mr-2 btn-error">Cancel</button>}
                       {(a.price && !a.paid) && <Link to={`/dashboard/payment/${a._id}`}><button className='btn btn-xs btn-success'>Pay</button></Link>}
+                      {<button onClick={()=>handleOrderDelete(a._id)} class="btn btn-xs ml-2 btn-error">Cancel</button>}
                     </>}
                   </td>
                   {/* <td>
@@ -85,6 +85,7 @@ const MyOrders = () => {
                 </tr>
               )
             }
+
           </tbody>
         </table>
       </div>
