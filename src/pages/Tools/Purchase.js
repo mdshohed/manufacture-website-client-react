@@ -18,7 +18,6 @@ const Purchase = () => {
       alert('please fill min-quantity')
     }
     
-
     const order = {
       toolsName: name,
       name: user?.displayName || '',
@@ -54,7 +53,7 @@ const Purchase = () => {
       <div class="hero">
         <div class="hero-content flex-col md:flex-row">
           <div className="text-center">
-            <img src={img} style={{width:'200px'}} alt='' class="max-w-sm rounded-lg shadow-2xl mx-auto" />
+            <img src={img} style={{width:'250px'}} alt='' class="max-w-sm rounded-lg mx-auto" />
             <h3 className='text-xl mt-5 text-primary'>{name}</h3>
             <p className='text-primary'>Price: <span className='text-red-500'>${price}</span></p>
             <p className='text-primary'>Minimum Order Quantity: <span className='text-red-500'>{minQuantity}</span></p>
