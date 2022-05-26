@@ -4,7 +4,7 @@ import banner1 from '../../assets/Banner/banner1.jpg'
 const Banner = () => {
   return (
      <div>
-       <div class="carousel w-full">
+       <div class="carousel  w-full">
         <div id="slide1" class="carousel-item relative w-full">
           <div class="hero " style={{
             background: `url(${banner1})`,
