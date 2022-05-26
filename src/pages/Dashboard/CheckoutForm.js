@@ -14,7 +14,7 @@ const CheckoutForm = ({appointment}) => {
   const {_id, price, patient, patientName} = appointment;
   
   useEffect(()=>{
-    fetch(`https://polar-crag-31556.herokuapp.com/create-payment-intent`,{
+    fetch(`http://localhost:5000/create-payment-intent`,{
       method: 'POST',
       headers: {
         'content-type': 'application/json',

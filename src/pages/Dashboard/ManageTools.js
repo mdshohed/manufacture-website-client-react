@@ -46,7 +46,7 @@ const ManageTools = () => {
                   <td>${a.price}</td>
                   <td>{a.quantity}</td>
                   <td>
-                    {<button onClick={()=>handleToolsDelete(a._id)} class="btn btn-xs ml-2 btn-error">Cancel</button>}
+                    {<button onClick={()=>handleToolsDelete(a._id)} class="btn btn-xs ml-2 btn-error">Delete</button>}
                   </td>
                 </tr>
               )

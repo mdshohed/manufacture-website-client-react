@@ -18,6 +18,9 @@ import ManageAllOrders from './pages/Dashboard/ManageAllOrders';
 import ManageTools from './pages/Dashboard/ManageTools';
 import AddTools from './pages/Dashboard/AddTools';
 import MakeAdmin from './pages/Dashboard/MakeAdmin';
+import NotFound from './pages/Shared/NotFound';
+import Blogs from './pages/Blogs/Blogs';
+import MyPortfolio from './pages/MyPortfolio/MyPortfolio';
 
 function App() {
 
@@ -26,6 +29,8 @@ function App() {
       <Navbar></Navbar>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
+        <Route path='/blogs' element={<Blogs/>}></Route>
+        <Route path='/myPortfolio' element={<MyPortfolio/>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<SignUp></SignUp>}></Route>
         <Route path='/tool/:id' element={<RequireAuth><Purchase/></RequireAuth>}></Route>
@@ -39,6 +44,7 @@ function App() {
           <Route path='makeAdmin' element={<MakeAdmin/>}></Route>
           <Route path='payment/:id' element={<Payment/>}></Route>
         </Route>
+        <Route path='*' element={<NotFound/>}></Route>
       </Routes>
       <ToastContainer />
     </div>

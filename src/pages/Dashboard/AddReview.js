@@ -36,8 +36,6 @@ const AddReview = () => {
         toast.error('Some error in your Review'); 
       }
     })
-
- 
     event.target.reset();
   }
 
