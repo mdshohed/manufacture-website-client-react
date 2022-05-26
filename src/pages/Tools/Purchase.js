@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -7,45 +7,72 @@ import useToolDetails from '../../hooks/useToolDetails';
 
 const Purchase = () => {
   const {id} = useParams(); 
-  const [tool] = useToolDetails(id); 
-  const {_id,name, img, price, minQuantity, quantity} = tool; 
-  const [user, loading, error] = useAuthState(auth); 
+  const [tool, setTool] = useToolDetails(id); 
+  const {_id, name, img, price, minQuantity, quantity} = tool; 
+  const [user] = useAuthState(auth); 
+  const [confirmButton, setConfirmButton] = useState(false); 
   
-  const handleOrders = (event) =>{
+  const handleOrders = async(event) =>{
     event.preventDefault(); 
-    const userQuantity = event.target.userQuantity.value; 
-    if(parseInt(userQuantity)<parseInt(minQuantity)) {
-      alert('please fill min-quantity')
+    const userQuantity = await event.target.userQuantity.value; 
+    if(parseInt(userQuantity)>parseInt(quantity)) {
+      alert('Not available much quantity, Please Choose in limit')
     }
     
-    const order = {
-      toolsName: name,
-      name: user?.displayName || '',
-      email: user?.email || '',
-      price, 
-      quantity: userQuantity,
-      address: event.target.address.value,
-      phone: event.target.phone.value
+    else {
+      const proceed = await window.confirm('Are you sure, you want to buy this parts'); 
+      if( proceed){
+        const order = {
+          toolsName: name,
+          productId: _id,
+          name: user?.displayName || '',
+          email: user?.email || '',
+          price, 
+          quantity: userQuantity,
+          address: event.target.address.value,
+          phone: event.target.phone.value
+        }
+        fetch('http://localhost:5000/order',{
+          method: 'POST', 
+          headers: {
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify(order)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+          if(data.success){
+            toast.success("Successfully order completed"); 
+            
+            const newparts = {
+              _id,
+              name,
+              quantity: parseInt(quantity) - parseInt(userQuantity),
+              img,
+              minQuantity, 
+              price
+            }
+            setTool(newparts);
+            console.log(tool); 
+  
+          }
+          else {
+            toast.success("Already another ordered");
+          }
+        })
+      }
+      
     }
-    fetch('http://localhost:5000/order',{
-      method: 'POST', 
-      headers: {
-        'content-type': 'application/json'
-      },
-      body: JSON.stringify(order)
-    })
-    .then(res=>res.json())
-    .then(data=>{
-      console.log(data);
-      if(data.success){
-        toast.success("Successfully order completed"); 
-      }
-      else {
-        toast.success("Already another ordered");
-      }
-    })
-    console.log(order);
   }
+
+  const handleQuantity = event =>{
+    const userQuantity = document.getElementById('quantity').value;
+    if(parseInt(userQuantity)<parseInt(minQuantity) || userQuantity==='') {
+      setConfirmButton(true);
+    }
+    else setConfirmButton(false);
+  }
+
 
   return (
     <div className="">
@@ -66,18 +93,18 @@ const Purchase = () => {
           
           <div className='mx-20' >
             <form onSubmit={handleOrders} className='grid grid-cols-1 gap-3 justify-items-center mt-2'>
-              <input type="text" name='name' disabled value={user?.displayName || ''} className="input input-bordered w-full " />
-              <input type="text" name='email' disabled value={user?.email || ''} className="input input-bordered w-full " />
-              <input type="text" name='address' placeholder='Address' className="input input-bordered w-full " />
-              <input type="text" name='phone' placeholder="Phone Number" className="input input-bordered w-full " />
+              <input type="text" name='name' disabled value={user?.displayName || ''} className="input input-bordered w-full " required/>
+              <input type="text" name='email'  disabled value={user?.email || ''} className="input input-bordered w-full " required/>
+              <input type="text" name='address' placeholder='Address' className="input input-bordered w-full " required/>
+              <input type="text" name='phone' placeholder="Phone Number" className="input input-bordered w-full " required/>
               {/* <input type="text" name='userQuantity' value={} placeholder='Address' className="input input-bordered w-full" /> */}
               <div class="form-control mb-3 ">
                 <label class="input-group">
                   <span>Quantity</span>
-                  <input type="text" name='userQuantity' value={minQuantity} placeholder="quantity"  class="input input-bordered w-full" />
+                  <input id='quantity' type="text" onBlur={handleQuantity} name='userQuantity' defaultValue={minQuantity} placeholder="Quantity"  class="input input-bordered w-full" required/>
                 </label>
               </div>
-              <input type="submit" value="Confirm Order" placeholder="Type here" className="btn btn-secondary" />
+              <input type="submit" disabled={confirmButton?true:false} value="Confirm Order" placeholder="Type here" className="btn btn-secondary" />
             </form>
           </div>
         </div>
@@ -87,3 +114,5 @@ const Purchase = () => {
 };
 
 export default Purchase;
+
+// disabled={confirmButton?true:true}

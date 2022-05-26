@@ -70,7 +70,7 @@ const MyOrders = () => {
                   <th>{index+1}</th>
                   <td>{a.toolsName}</td>
                   <td>{a.address}</td>
-                  <td>{a.price}</td>
+                  <td>${a.price}</td>
                   <td>{a.quantity}</td>
                   <td>
                     {<>

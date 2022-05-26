@@ -8,17 +8,17 @@ import auth from '../../firebase.init';
 
 const MyProfiles = () => {
   const [user] = useAuthState(auth);
-  const [edit, setEdit] = useState(false);
+  const [edit, setEdit] = useState(true);
   const [userProfile, setUserProfile] = useState({});
-  const {name, email, address, education, phone, linkedIn} = userProfile;
+  const {name, address, education, phone, linkedIn} = userProfile;
 
   useEffect(()=>{
     const url = `http://localhost:5000/profile?email=${user.email}`; 
     fetch(url)
     .then(res=>res.json())
     .then(data=>{
-      console.log(data); 
-      setUserProfile(data)
+      setUserProfile(data);
+      console.log(data);
     }); 
   },[userProfile]); 
 
@@ -29,7 +29,7 @@ const MyProfiles = () => {
     const proceed = await window.confirm('Are you sure you want to change profile details');
     if(proceed){
       const profile = {
-        name: event.target.address.value,
+        name: event.target.name.value,
         email: user.email,
         address: event.target.address.value,
         education: event.target.education.value,
@@ -51,11 +51,12 @@ const MyProfiles = () => {
     }
   }
 
+
   return (
     <div className='mt-5 mr-10'>
       <div className="flex justify-between border bg-base-200">
         <h3 className='text-xl font-bold p-2'>My Profiles</h3> 
-        <button onClick={()=>setEdit(!edit)} className='btn btn-primary btn-sm'>{edit ? "Edit Profile": "See Profile"}</button>
+        <button onClick={()=>setEdit(!edit)} className='btn btn-primary btn-sm m-2'>{edit ? "Edit Profile": "See Profile"}</button>
       </div>
       <div className="bg-red-100 border"></div>
       <div class="hero bg-base-200">
@@ -70,11 +71,11 @@ const MyProfiles = () => {
               <div>
                 <div className="my-1">
                   <small>Full Name</small>
-                  <h3 class=" font-bold">{name}</h3>
+                  <h3 class=" font-bold">{name===""? user.displayName: name}</h3>
                 </div>
                 <div className="my-1">
                   <small>Email Address</small>
-                  <h3 class=" font-bold">{email}</h3>
+                  <h3 class=" font-bold">{user?.email}</h3>
                 </div>
                 <div className="my-1">
                   <small>Address</small>
