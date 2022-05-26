@@ -52,21 +52,31 @@ const Purchase = () => {
       <h3 className='text-2xl text-center m-5'>Hello <span className='text-red-500'>{user?.displayName}</span>, Confirm your order</h3>
       <div class="hero">
         <div class="hero-content flex-col md:flex-row">
-          <div className="text-center">
-            <img src={img} style={{width:'250px'}} alt='' class="max-w-sm rounded-lg mx-auto" />
-            <h3 className='text-xl mt-5 text-primary'>{name}</h3>
-            <p className='text-primary'>Price: <span className='text-red-500'>${price}</span></p>
-            <p className='text-primary'>Minimum Order Quantity: <span className='text-red-500'>{minQuantity}</span></p>
-            <p><span className='text-primary'>Available Quantity:</span> {quantity}</p>
+          <div className="">
+            <img src={img} style={{width:'200px'}} alt='' class="max-w-sm rounded-lg mx-auto" />
+            <div class="card ">
+              <div class="card-body">
+              <h3 className='text-xl '>{name}</h3>
+              <p >Price: <span className='text-red-500'>${price}</span></p>
+              <p>Minimum Order Quantity: <span className='text-red-500'>{minQuantity}</span></p>
+              <p>Available Quantity: {quantity}</p>
+              </div>
+            </div>
           </div>
           
           <div className='mx-20' >
             <form onSubmit={handleOrders} className='grid grid-cols-1 gap-3 justify-items-center mt-2'>
-              <input type="text" name='name' disabled value={user?.displayName || ''} className="input input-bordered w-full max-w-xs" />
-              <input type="text" name='email' disabled value={user?.email || ''} className="input input-bordered w-full max-w-xs" />
-              <input type="text" name='address' placeholder='Address' className="input input-bordered w-full max-w-xs" />
-              <input type="text" name='phone' placeholder="Phone Number" className="input input-bordered w-full max-w-xs" />
-              <input type="text" name='userQuantity' value={minQuantity} placeholder='Address' className="input input-bordered w-full max-w-xs" />
+              <input type="text" name='name' disabled value={user?.displayName || ''} className="input input-bordered w-full " />
+              <input type="text" name='email' disabled value={user?.email || ''} className="input input-bordered w-full " />
+              <input type="text" name='address' placeholder='Address' className="input input-bordered w-full " />
+              <input type="text" name='phone' placeholder="Phone Number" className="input input-bordered w-full " />
+              {/* <input type="text" name='userQuantity' value={} placeholder='Address' className="input input-bordered w-full" /> */}
+              <div class="form-control mb-3 ">
+                <label class="input-group">
+                  <span>Quantity</span>
+                  <input type="text" name='userQuantity' value={minQuantity} placeholder="quantity"  class="input input-bordered w-full" />
+                </label>
+              </div>
               <input type="submit" value="Confirm Order" placeholder="Type here" className="btn btn-secondary" />
             </form>
           </div>

@@ -19,8 +19,8 @@ const ClientReview = () => {
 
   return (
     <section className='mx-20'>
-      <h2 className='text-2xl text-primary text-center'>Our Clients Review</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <h2 className='text-2xl text-primary text-center my-4'>Our Clients Review</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
         {
           reviews.map(review=><Review
           key={review._id}
