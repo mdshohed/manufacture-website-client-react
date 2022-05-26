@@ -7,7 +7,7 @@ const useTools = () => {
     fetch(url)
     .then(res=>res.json())
     .then(data=>setTools(data)); 
-  },[])
+  },[tools])
 
   return [tools]; 
 };

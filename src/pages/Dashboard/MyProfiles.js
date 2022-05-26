@@ -18,7 +18,6 @@ const MyProfiles = () => {
     .then(res=>res.json())
     .then(data=>{
       setUserProfile(data);
-      console.log(data);
     }); 
   },[userProfile]); 
 
@@ -46,6 +45,7 @@ const MyProfiles = () => {
       .then(res=>res.json())
       .then(data=>{
         setEdit(!edit); 
+        setUserProfile(profile)
         toast.success('Successfully Profile Update'); 
       })
     }
@@ -59,7 +59,7 @@ const MyProfiles = () => {
         <button onClick={()=>setEdit(!edit)} className='btn btn-primary btn-sm m-2'>{edit ? "Edit Profile": "See Profile"}</button>
       </div>
       <div className="bg-red-100 border"></div>
-      <div class="hero bg-base-200">
+      <div class="hero bg-base-200 ">
         <div class="hero-content flex-col lg:flex-row">
           <div class="avatar placeholder">
             <div class="bg-neutral-focus text-neutral-content rounded-full w-24">
@@ -71,7 +71,7 @@ const MyProfiles = () => {
               <div>
                 <div className="my-1">
                   <small>Full Name</small>
-                  <h3 class=" font-bold">{name===""? user.displayName: name}</h3>
+                  <h3 class=" font-bold">{name==='' || name===null? user.displayName : name}</h3>
                 </div>
                 <div className="my-1">
                   <small>Email Address</small>

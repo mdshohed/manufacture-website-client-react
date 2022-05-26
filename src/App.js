@@ -14,6 +14,10 @@ import Purchase from './pages/Tools/Purchase';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Payment from './pages/Dashboard/Payment';
+import ManageAllOrders from './pages/Dashboard/ManageAllOrders';
+import ManageTools from './pages/Dashboard/ManageTools';
+import AddTools from './pages/Dashboard/AddTools';
+import MakeAdmin from './pages/Dashboard/MakeAdmin';
 
 function App() {
 
@@ -29,6 +33,10 @@ function App() {
           <Route index element={<MyOrders></MyOrders>}></Route>
           <Route path='review' element={<AddReview/>}></Route>
           <Route path='profile' element={<MyProfiles/>}></Route>
+          <Route path='manageOrders' element={<ManageAllOrders/>}></Route>
+          <Route path='manageTools' element={<ManageTools/>}></Route>
+          <Route path='addTools' element={<AddTools/>}></Route>
+          <Route path='makeAdmin' element={<MakeAdmin/>}></Route>
           <Route path='payment/:id' element={<Payment/>}></Route>
         </Route>
       </Routes>
