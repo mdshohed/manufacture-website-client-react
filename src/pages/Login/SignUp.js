@@ -121,7 +121,7 @@ const SignUp = () => {
             <input type="submit" value="SignUp"  className='btn w-full max-w-xs text-white' />
 
           </form>
-          <p  className=''><small>Already have an account?<Link  className='text-primary' to="/login"> Please login</Link></small></p>
+          <p className=''><small>Already have an account?<Link  className='text-primary' to="/login"> Please login</Link></small></p>
 
           <div  className="divider">OR</div>
           <button onClick={() => signInWithGoogle()}  className='btn btn-outline'>Continue with Google</button>

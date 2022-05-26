@@ -56,10 +56,10 @@ const Purchase = () => {
             <img src={img} style={{width:'200px'}} alt='' class="max-w-sm rounded-lg mx-auto" />
             <div class="card ">
               <div class="card-body">
-              <h3 className='text-xl '>{name}</h3>
-              <p >Price: <span className='text-red-500'>${price}</span></p>
-              <p>Minimum Order Quantity: <span className='text-red-500'>{minQuantity}</span></p>
-              <p>Available Quantity: {quantity}</p>
+                <h3 className='text-xl '>{name}</h3>
+                <p >Price: <span className='text-red-500'>${price}</span></p>
+                <p>Minimum Order Quantity: <span className='text-red-500'>{minQuantity}</span></p>
+                <p>Available Quantity: {quantity}</p>
               </div>
             </div>
           </div>

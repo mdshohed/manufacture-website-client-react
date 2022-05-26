@@ -59,7 +59,7 @@ const AddReview = () => {
                     <option>5</option>
                   </select>
                   {/* <input type="number" name='rating' placeholder='Rating value' className="input input-bordered w-full max-w-xs" /> */}
-                  <textarea placeholder='Type Your Review...'  name="comment"  className="input input-bordered w-full max-w-xs " ></textarea>
+                  <textarea placeholder='Type Your Review...'  name="comment"  className=" w-full  textarea textarea-bordered" ></textarea>
                   <input type="submit" value="Submit" className="btn btn-secondary btn-sm" />
                 </form>
               </div>
