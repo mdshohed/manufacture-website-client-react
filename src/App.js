@@ -22,6 +22,7 @@ import NotFound from './pages/Shared/NotFound';
 import Blogs from './pages/Blogs/Blogs';
 import MyPortfolio from './pages/MyPortfolio/MyPortfolio';
 import RequireAdmin from './pages/Login/RequireAdmin';
+import CameraTools from './pages/Tools/CameraTools';
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
       <Navbar></Navbar>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
+        <Route path='/tools' element={<CameraTools/>}></Route>
         <Route path='/blogs' element={<Blogs/>}></Route>
         <Route path='/myPortfolio' element={<MyPortfolio/>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>

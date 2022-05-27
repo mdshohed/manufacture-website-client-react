@@ -6,7 +6,7 @@ const Tool = ({tools}) => {
   const {_id, name, img, price, minQuantity, quantity} = tools; 
 
   const handlePurchase = id =>{
-    const url = `tool/${id}`;
+    const url = `/tool/${id}`;
     navigate(url); 
   }
   return (

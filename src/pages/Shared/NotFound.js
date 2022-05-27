@@ -3,7 +3,7 @@ import notFound from '../../assets/images/error.jpg'
 
 const NotFound = () => {
   return (
-    <div className='container text-center'>
+    <div className='flex justify-center'>
       <img src={notFound} alt="" />
     </div>
   );
