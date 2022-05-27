@@ -21,3 +21,10 @@
 - [react query](https://react-query.tanstack.com/installation)
 - [react stripe payment](https://stripe.com/docs/stripe-js/react) 
 - [ stripe key](https://dashboard.stripe.com/test/apikeys)
+
+## Firebase Hosting: 
+
+- npm install -g firebase-tools
+- firebase login
+- firebase init
+- firebase deploy

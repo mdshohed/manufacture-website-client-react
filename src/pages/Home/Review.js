@@ -4,7 +4,7 @@ const Review = ({review}) => {
 
   
   return (
-    <div className="card lg:max-w-lg bg-base-100 shadow-xl">
+    <div className="card lg:max-w-lg bg-base-500  shadow-xl">
       <div className="card-body">
         <div className="flex justify-center">
           <div className="avatar placeholder mr-3">

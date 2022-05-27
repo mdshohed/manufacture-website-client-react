@@ -5,7 +5,7 @@ const Summary = () => {
   return (
     // style={{background: '#025b74'}}
     <div className='p-10' >
-      <h3 className='text-2xl text-primary text-center my-5'>WE REACHED</h3>
+      <h3 className='text-3xl text-primary text-center my-5'>WE REACHED</h3>
       <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-4 gap-5 mx-20">
         <div className="text-center m-3">
           <h4 className='text-2xl'><CountUp duration={2} end={72} />+</h4> 
