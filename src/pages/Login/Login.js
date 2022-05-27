@@ -1,13 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../Shared/Loading'
 import useToken from '../../hooks/useToken';
+import { sendPasswordResetEmail } from 'firebase/auth';
+import { toast } from 'react-toastify';
 // import useToken from '../../hooks/useToken';
 
 const Login = () => {
+  const emailRef = useRef('');
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
   const { register, formState: { errors }, handleSubmit } = useForm();
   const [
@@ -45,8 +48,20 @@ const Login = () => {
     signInWithEmailAndPassword(data.email, data.password); 
   }
 
+  const resetPassword = async()=>{
+    const email = emailRef.current.value;
+    console.log(email);
+    if(email) {
+      await sendPasswordResetEmail(email);
+      toast('Send email'); 
+    }
+    else {
+      alert('Please inter your email address'); 
+    }
+  }
+
   return (
-    <div className='flex justify-center items-center h-screen'>
+    <div className='flex justify-center items-center h-screen '>
       <div className="card w-96 bg-base-100 shadow-xl">
         <div className="card-body ">
           <h2 className="text-center">Login</h2>
@@ -56,6 +71,8 @@ const Login = () => {
                 <span className="label-text">Email</span>
               </label>
               <input 
+                name='email'
+                ref={emailRef}
                 type="email" 
                 placeholder="Your Email" 
                className="input input-bordered w-full max-w-xs" 
@@ -78,6 +95,7 @@ const Login = () => {
             <div className="form-control w-full max-w-xs">
               <label className="label">
                 <span className="label-text">Password</span>
+                {/* <a onClick={resetPassword} class="link link-accent" >Forgot Password?</a> */}
               </label>
               <input 
                 type="password" 

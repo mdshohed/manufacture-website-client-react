@@ -9,6 +9,7 @@ const MyOrders = () => {
   const [orders, setOrders] = useState([]); 
   const [user] = useAuthState(auth); 
   const navigate = useNavigate(); 
+  console.log(orders);
 
   useEffect(()=>{
     const url = `http://localhost:5000/order?email=${user.email}`; 
@@ -26,8 +27,7 @@ const MyOrders = () => {
       }
       return res.json()
     })
-    .then(data=>{
-      console.log(data); 
+    .then(data=>{ 
       setOrders(data);
     })
   },[])
@@ -61,6 +61,7 @@ const MyOrders = () => {
               <th>Price</th>
               <th>Quantity</th>
               <th>Status</th>
+
             </tr>
           </thead>
           <tbody>
@@ -75,13 +76,10 @@ const MyOrders = () => {
                   <td>
                     {<>
                       {(a.price && !a.paid) && <Link to={`/dashboard/payment/${a._id}`}><button className='btn btn-xs btn-success'>Pay</button></Link>}
-                      {<button onClick={()=>handleOrderDelete(a._id)} class="btn btn-xs ml-2 btn-error">Cancel</button>}
+                      {(a.price && !a.paid) && <button onClick={()=>handleOrderDelete(a._id)} class="btn btn-xs ml-2 btn-error">Cancel</button>}
+                      {(a.price && a.paid) && <span className='text-success'>Paid</span>}
                     </>}
                   </td>
-                  {/* <td>
-                    {(a.price && !a.paid) && <Link to={`/dashboard/payment/${a._id}`}><button className='btn btn-xs btn-success'>Pay</button></Link>}
-                    {(a.price && a.paid) && <span className='text-success'>Paid</span>}
-                  </td> */}
                 </tr>
               )
             }

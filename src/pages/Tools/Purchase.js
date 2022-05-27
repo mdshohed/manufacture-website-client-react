@@ -44,7 +44,7 @@ const Purchase = () => {
           if(data.success){
             toast.success("Successfully order completed"); 
             
-            const newparts = {
+            const newParts = {
               _id,
               name,
               quantity: parseInt(quantity) - parseInt(userQuantity),
@@ -52,8 +52,7 @@ const Purchase = () => {
               minQuantity, 
               price
             }
-            setTool(newparts);
-            console.log(tool); 
+            setTool(newParts); 
   
           }
           else {

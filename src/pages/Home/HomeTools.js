@@ -4,7 +4,8 @@ import Tool from '../Tools/Tool';
 
 const HomeTools = () => {
   const [tools] = useTools(); 
-  console.log(tools);
+
+  
   return (
     <div>
       <h3 className='text-2xl text-primary text-center m-10'>Available Tools</h3>

@@ -11,8 +11,9 @@ const MyPortfolio = () => {
             </div>
           </div>
           <div className='mx-5'>
-            <h1 class="text-3xl font-bold">This is Shohedul Islam</h1>
-            <p class="py-5">I am student of southeast University. I am competitive programmer. besides studies, i do problem solve. i have solve 400+ problem in online judge like codeforces, lightOj, Codechef, hackerrank and SpOj, etc. Now, I have completed Programming hero full stack web developing course. at present, i have hugs knowledge about frontEnd and backEnd. like 
+            <h1 class="text-2xl mt-3">Hello,</h1>
+            <h1 class="text-2xl ">This is Shohedul Islam</h1>
+            <p class="py-3">I am student of southeast University. I am competitive programmer. besides studies, i do problem solve. i have solve 400+ problem in online judge like codeforces, lightOj, Codechef, hackerrank and SpOj, etc. Now, I have completed Programming hero full stack web developing course. at present, i have hugs knowledge about frontEnd and backEnd. like 
             <li>HTML</li>
             <li>CSS</li>
             <li>JavaScript</li>

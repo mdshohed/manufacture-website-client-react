@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import {CardElement,useStripe, useElements} from '@stripe/react-stripe-js';
 import { async } from '@firebase/util';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 
-const CheckoutForm = ({appointment}) => {
+const CheckoutForm = ({order}) => {
   const stripe = useStripe(); 
   const elements = useElements(); 
   const [cardError, setCardError ] = useState(''); 
@@ -10,8 +12,9 @@ const CheckoutForm = ({appointment}) => {
   const [processing, setProcessing ] = useState(false); 
   const [transactionId, setTransactionId ] = useState(''); 
   const [clientSecret, setClientSecret] = useState('');
+  const [user] = useAuthState(auth);
 
-  const {_id, price, patient, patientName} = appointment;
+  const {_id, toolsName, address, price, quantity} = order;
   
   useEffect(()=>{
     fetch(`http://localhost:5000/create-payment-intent`,{
@@ -52,12 +55,13 @@ const CheckoutForm = ({appointment}) => {
 
     //confirm card payment
     const {paymentIntent, error: intentError} = await stripe
+
     .confirmCardPayment(clientSecret, {
       payment_method: {
         card: card,
         billing_details: {
-          name: patientName,
-          email: patient
+          name: user?.displayName,
+          email: user?.email
         },
       },
     })
@@ -73,10 +77,10 @@ const CheckoutForm = ({appointment}) => {
 
       //store payment on database
       const payment = {
-        appointment: _id,
+        order: _id,
         transactionId: paymentIntent.id
       }
-      fetch(`https://polar-crag-31556.herokuapp.com/booking/${_id}`,{
+      fetch(`http://localhost:5000/order/${_id}`,{
         method: 'PATCH',
         headers: {
           'content-type': 'application/json',
@@ -87,7 +91,6 @@ const CheckoutForm = ({appointment}) => {
       }).then(res=>res.json())
       .then(data=>{
         setProcessing(false); 
-        console.log(data);
       })
     }
   }

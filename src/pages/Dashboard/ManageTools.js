@@ -5,7 +5,6 @@ import useTools from '../../hooks/useTools';
 
 const ManageTools = () => {
   const [tools, setTools] = useTools();
-  console.log(tools);
 
   const handleToolsDelete = id =>{
     const proceed = window.confirm('Are you sure you want to delete this Product'); 
