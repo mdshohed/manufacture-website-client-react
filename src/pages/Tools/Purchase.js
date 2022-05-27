@@ -32,7 +32,7 @@ const Purchase = () => {
           address: event.target.address.value,
           phone: event.target.phone.value
         }
-        fetch('http://localhost:5000/order',{
+        fetch('https://damp-beach-74920.herokuapp.com/order',{
           method: 'POST', 
           headers: {
             'content-type': 'application/json'
@@ -76,12 +76,12 @@ const Purchase = () => {
   return (
     <div className="">
       <h3 className='text-2xl text-center m-5'>Hello <span className='text-red-500'>{user?.displayName}</span>, Confirm your order</h3>
-      <div class="hero">
-        <div class="hero-content flex-col md:flex-row">
+      <div className="hero">
+        <div className="hero-content flex-col md:flex-row">
           <div className="">
-            <img src={img} style={{width:'200px'}} alt='' class="max-w-sm rounded-lg mx-auto" />
-            <div class="card ">
-              <div class="card-body">
+            <img src={img} style={{width:'200px'}} alt='' className="max-w-sm rounded-lg mx-auto" />
+            <div className="card ">
+              <div className="card-body">
                 <h3 className='text-xl '>{name}</h3>
                 <p >Price: <span className='text-red-500'>${price}</span></p>
                 <p>Minimum Order Quantity: <span className='text-red-500'>{minQuantity}</span></p>
@@ -97,10 +97,10 @@ const Purchase = () => {
               <input type="text" name='address' placeholder='Address' className="input input-bordered w-full " required/>
               <input type="text" name='phone' placeholder="Phone Number" className="input input-bordered w-full " required/>
               {/* <input type="text" name='userQuantity' value={} placeholder='Address' className="input input-bordered w-full" /> */}
-              <div class="form-control mb-3 ">
-                <label class="input-group">
+              <div className="form-control mb-3 ">
+                <label className="input-group">
                   <span>Quantity</span>
-                  <input id='quantity' type="text" onBlur={handleQuantity} name='userQuantity' defaultValue={minQuantity} placeholder="Quantity"  class="input input-bordered w-full" required/>
+                  <input id='quantity' type="text" onBlur={handleQuantity} name='userQuantity' defaultValue={minQuantity} placeholder="Quantity"  className="input input-bordered w-full" required/>
                 </label>
               </div>
               <input type="submit" disabled={confirmButton?true:false} value="Confirm Order" placeholder="Type here" className="btn btn-secondary" />

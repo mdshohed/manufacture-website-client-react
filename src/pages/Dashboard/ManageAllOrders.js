@@ -13,7 +13,7 @@ const ManageAllOrders = () => {
   const navigate = useNavigate(); 
 
   useEffect(()=>{
-    const url = `http://localhost:5000/order/admin`; 
+    const url = `https://damp-beach-74920.herokuapp.com/order/admin`; 
     fetch(url,{
       method: 'GET', 
       headers: {
@@ -36,7 +36,7 @@ const ManageAllOrders = () => {
   const handleOrderDelete = async(id) =>{
     const proceed = window.confirm('Are you sure you want to delete this Product'); 
     if(proceed) {
-      const url = `http://localhost:5000/order/${id}`;
+      const url = `https://damp-beach-74920.herokuapp.com/order/${id}`;
       fetch(url,{
         method: 'DELETE'
       })
@@ -50,8 +50,7 @@ const ManageAllOrders = () => {
   }
   
   const handleAdminShipped = (id) =>{
-    console.log(id);
-    fetch(`http://localhost:5000/order/admin/${id}`,{
+    fetch(`https://damp-beach-74920.herokuapp.com/order/admin/${id}`,{
         method: 'PATCH',
         headers: {
           'content-type': 'application/json',
@@ -67,8 +66,8 @@ const ManageAllOrders = () => {
   return (
     <div>
       {/* <h2>My Appointments: {appointments.length}</h2> */}
-      <div class="overflow-x-auto mx-3">
-        <table class="table w-full">
+      <div className="overflow-x-auto mx-3">
+        <table className="table w-full">
           <thead >
             <tr >
               <th></th>

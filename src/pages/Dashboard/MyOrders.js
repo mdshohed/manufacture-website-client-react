@@ -4,15 +4,17 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
+import ConfirmModel from '../Shared/ConfirmModel';
 
 const MyOrders = () => {
   const [orders, setOrders] = useState([]); 
   const [user] = useAuthState(auth); 
   const navigate = useNavigate(); 
-  console.log(orders);
+  const [openModel, setOpenModel] = useState(false);
+
 
   useEffect(()=>{
-    const url = `http://localhost:5000/order?email=${user.email}`; 
+    const url = `https://damp-beach-74920.herokuapp.com/order?email=${user.email}`; 
     fetch(url,{
       method: 'GET', 
       headers: {
@@ -32,10 +34,10 @@ const MyOrders = () => {
     })
   },[])
 
-  const handleOrderDelete = async(id) =>{
+  const handleOrderDelete = async(id) =>{ 
     const proceed = window.confirm('Are you sure you want to delete this Product'); 
     if(proceed) {
-      const url = `http://localhost:5000/order/${id}`;
+      const url = `https://damp-beach-74920.herokuapp.com/order/${id}`;
       fetch(url,{
         method: 'DELETE'
       })
@@ -47,12 +49,14 @@ const MyOrders = () => {
       })
     }  
   }
+
+  
   
   return (
     <div>
       {/* <h2>My Appointments: {appointments.length}</h2> */}
-      <div class="overflow-x-auto mx-3">
-        <table class="table w-full">
+      <div className="overflow-x-auto mx-3">
+        <table className="table w-full">
           <thead >
             <tr >
               <th></th>
@@ -76,7 +80,7 @@ const MyOrders = () => {
                   <td>
                     {<>
                       {(a.price && !a.paid) && <Link to={`/dashboard/payment/${a._id}`}><button className='btn btn-xs btn-success'>Pay</button></Link>}
-                      {(a.price && !a.paid) && <button onClick={()=>handleOrderDelete(a._id)} class="btn btn-xs ml-2 btn-error">Cancel</button>}
+                      {(a.price && !a.paid) && <button onClick={()=>handleOrderDelete(a._id)} className="btn btn-xs ml-2 btn-error">Cancel</button>}
                       {(a.price && a.paid) && <span className='text-success'>Paid</span>}
                     </>}
                   </td>

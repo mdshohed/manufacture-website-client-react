@@ -1,4 +1,4 @@
-import { useAuthState } from 'react-firebase-hooks/auth';
+
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Home from './pages/Home/Home';
@@ -21,6 +21,7 @@ import MakeAdmin from './pages/Dashboard/MakeAdmin';
 import NotFound from './pages/Shared/NotFound';
 import Blogs from './pages/Blogs/Blogs';
 import MyPortfolio from './pages/MyPortfolio/MyPortfolio';
+import RequireAdmin from './pages/Login/RequireAdmin';
 
 function App() {
 
@@ -38,10 +39,10 @@ function App() {
           <Route index element={<MyOrders></MyOrders>}></Route>
           <Route path='review' element={<AddReview/>}></Route>
           <Route path='profile' element={<MyProfiles/>}></Route>
-          <Route path='manageOrders' element={<ManageAllOrders/>}></Route>
-          <Route path='manageTools' element={<ManageTools/>}></Route>
-          <Route path='addTools' element={<AddTools/>}></Route>
-          <Route path='makeAdmin' element={<MakeAdmin/>}></Route>
+          <Route path='manageOrders' element={<RequireAdmin><ManageAllOrders/></RequireAdmin>}></Route>
+          <Route path='manageTools' element={<RequireAdmin><ManageTools/></RequireAdmin>}></Route>
+          <Route path='addTools' element={<RequireAdmin><AddTools/></RequireAdmin>}></Route>
+          <Route path='makeAdmin' element={<RequireAdmin><MakeAdmin/></RequireAdmin>}></Route>
           <Route path='payment/:id' element={<Payment/>}></Route>
         </Route>
         <Route path='*' element={<NotFound/>}></Route>

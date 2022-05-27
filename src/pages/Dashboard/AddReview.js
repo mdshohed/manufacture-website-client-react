@@ -11,7 +11,6 @@ const AddReview = () => {
     event.preventDefault(); 
     const rating = event.target.rating.value; 
     const comment = event.target.comment.value;  
-    console.log(rating);
 
     const review = {
       name: user?.displayName || '',
@@ -19,7 +18,7 @@ const AddReview = () => {
       review: comment
     }
     
-    fetch('http://localhost:5000/review', {
+    fetch('https://damp-beach-74920.herokuapp.com/review', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -28,7 +27,6 @@ const AddReview = () => {
     })
     .then(res=>res.json())
     .then(data=>{
-      console.log(data);
       if(data.success){
         toast.success('Successfully completed Review')
       }
@@ -42,12 +40,12 @@ const AddReview = () => {
   return (
     <div className=''>
       <h3 className='text-xl text-success text-center my-5'>Added Your Review About Our Service</h3>
-      <div class="hero ">
-        <div class="hero-content flex-col md:flex-row">
-          <img src={review} alt='' class="max-w-sm rounded-lg" />
+      <div className="hero ">
+        <div className="hero-content flex-col md:flex-row">
+          <img src={review} alt='' className="max-w-sm rounded-lg" />
           <div>
-            <div class="card w-96 bg-base-100 mx-auto">
-              <div class="card-body">
+            <div className="card w-96 bg-base-100 mx-auto">
+              <div className="card-body">
                 <form onSubmit={handleReview} className='grid grid-cols-1 gap-3 justify-items-center mt-2'>
                   <select name='rating' className="select select-bordered w-full max-w-xs">
                     <option>1</option>

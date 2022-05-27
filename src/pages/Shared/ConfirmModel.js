@@ -1,14 +1,14 @@
 import React from 'react';
 
-const ConfirmModel = () => {
+const ConfirmModel = ({setOpenModel}) => {
   return (
-    <div class="card w-96 bg-neutral text-neutral-content">
-      <div class="card-body items-center text-center">
-        <h2 class="card-title">Cookies!</h2>
-        <p>We are using cookies for no reason.</p>
-        <div class="card-actions justify-end">
-          <button class="btn btn-primary">Accept</button>
-          <button class="btn btn-ghost">Deny</button>
+    <div className="card w-96 bg-neutral text-neutral-content">
+      <div className="card-body items-center text-center">
+        <h2 className="card-title">Are you sure!</h2>
+        <p>You want to delete this Products.</p>
+        <div className="card-actions justify-end">
+          <button  className="btn btn-primary">Accept</button>
+          <button  className="btn btn-ghost">Deny</button>
         </div>
       </div>
     </div>

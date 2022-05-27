@@ -7,9 +7,9 @@ const Review = ({review}) => {
     <div className="card lg:max-w-lg bg-base-100 shadow-xl">
       <div className="card-body">
         <div className="flex justify-center">
-          <div class="avatar placeholder mr-3">
-            <div class="bg-neutral-focus text-neutral-content rounded-full w-12 border">
-              <span class="text-xl">{review.name.slice(0,3)}</span>
+          <div className="avatar placeholder mr-3">
+            <div className="bg-neutral-focus text-neutral-content rounded-full w-12 border">
+              <span className="text-xl">{review.name.slice(0,3)}</span>
             </div>
           </div> 
           <div className="">

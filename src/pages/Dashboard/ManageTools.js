@@ -9,7 +9,7 @@ const ManageTools = () => {
   const handleToolsDelete = id =>{
     const proceed = window.confirm('Are you sure you want to delete this Product'); 
     if(proceed) {
-      const url = `http://localhost:5000/tool/${id}`;
+      const url = `https://damp-beach-74920.herokuapp.com/tool/${id}`;
       fetch(url,{
         method: 'DELETE'
       })
@@ -23,8 +23,8 @@ const ManageTools = () => {
   }
   return (
     <div>
-      <div class="overflow-x-auto mx-3">
-        <table class="table w-full">
+      <div className="overflow-x-auto mx-3">
+        <table className="table w-full">
           <thead >
             <tr >
               <th></th>
@@ -45,7 +45,7 @@ const ManageTools = () => {
                   <td>${a.price}</td>
                   <td>{a.quantity}</td>
                   <td>
-                    {<button onClick={()=>handleToolsDelete(a._id)} class="btn btn-xs ml-2 btn-error">Delete</button>}
+                    {<button onClick={()=>handleToolsDelete(a._id)} className="btn btn-xs ml-2 btn-error">Delete</button>}
                   </td>
                 </tr>
               )

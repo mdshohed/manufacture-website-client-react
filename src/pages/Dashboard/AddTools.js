@@ -15,8 +15,7 @@ const AddTools = () => {
      minQuantity: event.target.minQuantity.value,
      quantity: event.target.quantity.value,
     }
-    console.log(product)
-    fetch('http://localhost:5000/tool', {
+    fetch('https://damp-beach-74920.herokuapp.com/tool', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -25,7 +24,6 @@ const AddTools = () => {
     })
     .then(res=>res.json())
     .then(data=>{
-      console.log(data);
       if(data.success){
         toast.success('Successfully completed Review')
       }
@@ -41,8 +39,8 @@ const AddTools = () => {
   return (
     <div className="">
       <h3 className='text-2xl text-center m-5'>Add Product</h3>
-      <div class="hero">
-        <div class="hero-content flex-col md:flex-row">
+      <div className="hero">
+        <div className="hero-content flex-col md:flex-row">
           <div className='card-body' >
             <form onSubmit={handleTools} className='grid grid-cols-1 gap-3 justify-items-center mt-2'>
               <input type="text" name='name' placeholder='Product Name' className="input input-bordered w-full " required/>

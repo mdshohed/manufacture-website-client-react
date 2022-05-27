@@ -17,7 +17,7 @@ const CheckoutForm = ({order}) => {
   const {_id, toolsName, address, price, quantity} = order;
   
   useEffect(()=>{
-    fetch(`http://localhost:5000/create-payment-intent`,{
+    fetch(`https://damp-beach-74920.herokuapp.com/create-payment-intent`,{
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -71,8 +71,7 @@ const CheckoutForm = ({order}) => {
     }
     else {
       setCardError(''); 
-      setTransactionId(paymentIntent.id); 
-      console.log(paymentIntent); 
+      setTransactionId(paymentIntent.id);  
       setSuccess('Congrats! Your payment is completed.')
 
       //store payment on database
@@ -80,7 +79,7 @@ const CheckoutForm = ({order}) => {
         order: _id,
         transactionId: paymentIntent.id
       }
-      fetch(`http://localhost:5000/order/${_id}`,{
+      fetch(`https://damp-beach-74920.herokuapp.com/order/${_id}`,{
         method: 'PATCH',
         headers: {
           'content-type': 'application/json',

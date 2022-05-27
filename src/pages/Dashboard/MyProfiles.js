@@ -13,7 +13,7 @@ const MyProfiles = () => {
   const {name, address, education, phone, linkedIn} = userProfile;
 
   useEffect(()=>{
-    const url = `http://localhost:5000/profile?email=${user.email}`; 
+    const url = `https://damp-beach-74920.herokuapp.com/profile?email=${user.email}`; 
     fetch(url)
     .then(res=>res.json())
     .then(data=>{
@@ -35,7 +35,7 @@ const MyProfiles = () => {
         phone: event.target.phone.value,
         linkedIn: event.target.linkedIn.value,
       }
-      fetch('http://localhost:5000/profile', {
+      fetch('https://damp-beach-74920.herokuapp.com/profile', {
         method: 'POST',
         headers: {
           'content-type': 'application/json'
@@ -59,11 +59,11 @@ const MyProfiles = () => {
         <button onClick={()=>setEdit(!edit)} className='btn btn-primary btn-sm m-2'>{edit ? "Edit Profile": "See Profile"}</button>
       </div>
       <div className="bg-red-100 border"></div>
-      <div class="hero bg-base-200 ">
-        <div class="hero-content flex-col lg:flex-row">
-          <div class="avatar placeholder">
-            <div class="bg-neutral-focus text-neutral-content rounded-full w-24">
-              <span class="text-3xl">K</span>
+      <div className="hero bg-base-200 ">
+        <div className="hero-content flex-col lg:flex-row">
+          <div className="avatar placeholder">
+            <div className="bg-neutral-focus text-neutral-content rounded-full w-24">
+              <span className="text-3xl">K</span>
             </div>
           </div> 
           {
@@ -71,67 +71,67 @@ const MyProfiles = () => {
               <div>
                 <div className="my-1">
                   <small>Full Name</small>
-                  <h3 class=" font-bold">{name==='' || name===null? user.displayName : name}</h3>
+                  <h3 className=" font-bold">{name==='' || name===null? user.displayName : name}</h3>
                 </div>
                 <div className="my-1">
                   <small>Email Address</small>
-                  <h3 class=" font-bold">{user?.email}</h3>
+                  <h3 className=" font-bold">{user?.email}</h3>
                 </div>
                 <div className="my-1">
                   <small>Address</small>
-                  <h3 class=" font-bold">{address}</h3>
+                  <h3 className=" font-bold">{address}</h3>
                 </div>
                 <div className="my-1">
                   <small>Education</small>
-                  <h3 class=" font-bold">{education}</h3>
+                  <h3 className=" font-bold">{education}</h3>
                 </div>
                 <div className="my-1">
                   <small>Phone</small>
-                  <h3 class=" font-bold">{phone}</h3>
+                  <h3 className=" font-bold">{phone}</h3>
                 </div>
                 <div className="my-1">
                   <small>LinkedIn</small>
-                  <h3 class=" font-bold"><Link as={Link} to="" className='link link-primary'>{linkedIn}</Link></h3>
+                  <h3 className=" font-bold"><Link as={Link} to="" className='link link-primary'>{linkedIn}</Link></h3>
                 </div>
               </div>
             </> 
             : <>
               <form onSubmit={handleSubmit} className='grid grid-cols-1 justify-items-center'>
-                <div class="form-control">
-                  <label class="label">
-                    <small class="label-text">Full Name</small>
+                <div className="form-control">
+                  <label className="label">
+                    <small className="label-text">Full Name</small>
                   </label>
-                    <input type="text" name='name' value={user.displayName} placeholder="" class="input input-sm input-bordered w-full" />
+                    <input type="text" name='name' value={user.displayName} placeholder="" className="input input-sm input-bordered w-full" />
                 </div>
-                <div class="form-control">
-                  <label class="label">
-                    <small class="label-text">Email</small>
+                <div className="form-control">
+                  <label className="label">
+                    <small className="label-text">Email</small>
                   </label>
-                    <input type="text" name='email' value={user.email} placeholder="" class="input input-sm input-bordered w-full" />
+                    <input type="text" name='email' value={user.email} placeholder="" className="input input-sm input-bordered w-full" />
                 </div>
-                <div class="form-control">
-                  <label class="label">
-                    <small class="label-text">Address</small>
+                <div className="form-control">
+                  <label className="label">
+                    <small className="label-text">Address</small>
                   </label>
-                    <input type="text" name='address' placeholder="Address" class="input input-sm input-bordered w-full" />
+                    <input type="text" name='address' placeholder="Address" className="input input-sm input-bordered w-full" />
                 </div>
-                <div class="form-control">
-                  <label class="label">
-                    <small class="label-text">Education</small>
+                <div className="form-control">
+                  <label className="label">
+                    <small className="label-text">Education</small>
                   </label>
-                    <input type="text" name='education' placeholder="Education" class="input input-sm input-bordered w-full" />
+                    <input type="text" name='education' placeholder="Education" className="input input-sm input-bordered w-full" />
                 </div>
-                <div class="form-control">
-                  <label class="label">
-                    <small class="label-text">Phone</small>
+                <div className="form-control">
+                  <label className="label">
+                    <small className="label-text">Phone</small>
                   </label>
-                    <input type="text" name='phone' placeholder="Phone" class="input input-sm input-bordered w-full" />
+                    <input type="text" name='phone' placeholder="Phone" className="input input-sm input-bordered w-full" />
                 </div>
-                <div class="form-control">
-                  <label class="label">
-                    <small class="label-text">LinkedIn</small>
+                <div className="form-control">
+                  <label className="label">
+                    <small className="label-text">LinkedIn</small>
                   </label>
-                    <input type="text" name='linkedIn'  placeholder="LinkedIn link" class="input input-sm input-bordered w-full" />
+                    <input type="text" name='linkedIn'  placeholder="LinkedIn link" className="input input-sm input-bordered w-full" />
                 </div>
                 <input type="submit" value="Save Changes" className='btn btn-secondary btn-sm mt-3'/>
               </form>

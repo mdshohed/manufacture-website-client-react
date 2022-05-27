@@ -44,13 +44,11 @@ const Login = () => {
 
   
   const onSubmit = data => {
-    console.log(data); 
     signInWithEmailAndPassword(data.email, data.password); 
   }
 
   const resetPassword = async()=>{
     const email = emailRef.current.value;
-    console.log(email);
     if(email) {
       await sendPasswordResetEmail(email);
       toast('Send email'); 
@@ -95,7 +93,7 @@ const Login = () => {
             <div className="form-control w-full max-w-xs">
               <label className="label">
                 <span className="label-text">Password</span>
-                {/* <a onClick={resetPassword} class="link link-accent" >Forgot Password?</a> */}
+                {/* <a onClick={resetPassword} className="link link-accent" >Forgot Password?</a> */}
               </label>
               <input 
                 type="password" 

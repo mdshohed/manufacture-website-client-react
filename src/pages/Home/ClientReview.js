@@ -4,7 +4,7 @@ import Loading from '../Shared/Loading';
 import Review from './Review';
 
 const ClientReview = () => {
-  const url = `http://localhost:5000/review`;
+  const url = `https://damp-beach-74920.herokuapp.com/review`;
   const {data: reviews, isLoading} = useQuery('reviews', ()=>fetch(url,{
     method: 'GET', 
     // headers: {
@@ -15,7 +15,6 @@ const ClientReview = () => {
   if(isLoading) {
     return <Loading></Loading>
   }
-  console.log(reviews);
 
   return (
     <section className='mx-20 my-10'>
