@@ -11,7 +11,8 @@ const Banner = () => {
         <div id="slide1" class="carousel-item relative w-full">
           <div class="hero " style={{
             background: `url(${banner1})`,
-            backgroundSize: 'cover'
+            backgroundSize: 'cover',
+            height: '500px'
           }}>
             {/* <div class="hero-overlay"></div> */}
             <div class="hero-content text-center text-neutral-content">
@@ -31,7 +32,8 @@ const Banner = () => {
         <div id="slide2" class="carousel-item relative w-full">
           <div class="hero max-h-screen" style={{
               background: `url(${banner2})`,
-              backgroundSize: 'cover'
+              backgroundSize: 'cover',
+              height: '500px'
             }}>
             
             <div class="hero-content text-center text-neutral-content">
@@ -49,9 +51,10 @@ const Banner = () => {
           </div>
         </div> 
         <div id="slide3" class="carousel-item relative w-full">
-          <div class="hero min-h-screen" style={{
+          <div class="hero " style={{
               background: `url(${banner3})`,
-              backgroundSize: 'cover'
+              backgroundSize: 'cover',
+              height: '500px'
             }}>
             
             <div class="hero-content text-center text-neutral-content">
@@ -69,9 +72,10 @@ const Banner = () => {
           </div>
         </div> 
         <div id="slide4" class="carousel-item relative w-full">
-          <div class="hero min-h-screen" style={{
+          <div class="hero " style={{
               background: `url(${banner4})`,
-              backgroundSize: 'cover'
+              backgroundSize: 'cover',
+              height: '500px'
             }}>
             
             <div class="hero-content text-center text-neutral-content">
